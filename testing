@@ -1,0 +1,15 @@
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://incels.is/threads/its-a-bluepilled-lie-to-claim-that-women-are-attracted-to-funny-men.457422/"
+
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, "html.parser")
+
+# Now you can extract data from the HTML content of the page.
+# For example, you can extract all the links:
+links = soup.find_all("a")
+for link in links:
+    print(link.get("href"))
+    
